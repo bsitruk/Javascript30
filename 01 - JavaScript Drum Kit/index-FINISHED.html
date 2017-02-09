@@ -60,7 +60,11 @@
 <script>
   function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
+
+    // Check if we are on the first phase of the transition (out -> in)
+    if(e.target.classList.contains('playing')) {
+      e.target.classList.remove('playing');      
+    }
   }
 
   function playSound(e) {

@@ -59,6 +59,29 @@
 
 <script>
 
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+    if(!audio) return; // Stop the function from running
+    
+    audio.currentTime = 0; // Rewind to the start
+    audio.play();
+
+    // Adding a named handler multiple times, won't have any effect. 
+    // It will trigger only once !
+    key.addEventListener('transitionend', removeTransition)
+    key.classList.add('playing');
+  }
+
+  function removeTransition(e) {
+    if(e.propertyName !== 'transform') return; // We process only the transform transition, cause there is too much transitions
+
+    this.removeEventListener('transitionend', removeTransition);
+    this.classList.remove('playing');
+  }
+
+  window.addEventListener("keydown", playSound);
 </script>
 
 
