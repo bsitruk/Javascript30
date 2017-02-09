@@ -34,6 +34,7 @@
     }
 
     .clock {
+      --hand-height: 6px;
       width: 30rem;
       height: 30rem;
       border:20px solid white;
@@ -52,12 +53,12 @@
       position: relative;
       width: 100%;
       height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
+      transform: translateY(-calc(var(--hand-height)/2)); /* account for the height of the clock hands */
     }
 
     .hand {
       width:50%;
-      height:6px;
+      height: var(--hand-height);
       background:black;
       position: absolute;
       top:50%;
