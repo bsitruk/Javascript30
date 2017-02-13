@@ -16,3 +16,11 @@
 ** Convert Date (Hours, Minutes, Seconds) to Angles in degrees
 
 
+03 - CSS Variables ******************
+
+** CSS Variables update with JS
+	e.g: element.style.setProperty('--variableName', value);
+** img padding (border effect) with blur filter
+** 'input' event to update immediatly after an input change
+** element.dataset property to access data-* attributes
+
